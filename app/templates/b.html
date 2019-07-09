@@ -39,8 +39,21 @@
 
 
 <script type="text/javascript">
+  $(document).ready(() => {
 
-	// your solution here
+    // source: http://javascript.info/settimeout-setinterval
+    
+    let timerId = setTimeout(function tick() {
+      $(".shape-container").append("<div class='p2-circle bg-blue'></div>");
+      timerId = setTimeout(tick, 1000); // (*)
+     }, 1000);
+    
+    $('.btn-light').on('click', () => {
+      clearTimeout(timerId);
+    });
+    
+    
+  });
 
 </script>
 </body>
